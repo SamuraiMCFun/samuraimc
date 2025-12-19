@@ -1,4 +1,4 @@
-// Inicializar partículas
+// Inicializar
 document.addEventListener('DOMContentLoaded', function() {
     // Partículas en el fondo
     if (typeof particlesJS !== 'undefined') {
@@ -229,3 +229,4 @@ function playClickSound() {
 document.querySelectorAll('.btn, .nav-link, .mode-btn').forEach(button => {
     button.addEventListener('click', playClickSound);
 });
+
