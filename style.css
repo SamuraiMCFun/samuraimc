@@ -1,66 +1,231 @@
-/* Configuración General */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0a0a0a;
-    color: white;
+// Inicializar partículas
+document.addEventListener('DOMContentLoaded', function() {
+    // Partículas en el fondo
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#00ff88" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#00ff88",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+    }
+
+    // Efecto de navbar al hacer scroll
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Animación de números contadores
+    const counters = document.querySelectorAll('.stat-number');
+    const speed = 200;
+
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-count');
+            const count = +counter.innerText;
+            const increment = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(updateCount, 1);
+            } else {
+                counter.innerText = target + '+';
+            }
+        };
+
+        // Trigger con Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    updateCount();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(counter);
+    });
+
+    // Copiar IP al portapapeles
+    const copyButtons = document.querySelectorAll('#copy-ip, #copy-ip-2');
+    copyButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const ip = 'play.nivorxy.net';
+            
+            // Copiar al portapapeles
+            navigator.clipboard.writeText(ip).then(() => {
+                // Feedback visual
+                const originalHTML = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i><span>¡IP Copiada!</span>';
+                button.style.background = 'var(--gradient-primary)';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalHTML;
+                    button.style.background = '';
+                }, 2000);
+            });
+        });
+    });
+
+    // Efecto 3D en tarjetas
+    if (typeof VanillaTilt !== 'undefined') {
+        VanillaTilt.init(document.querySelectorAll(".card-3d"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.3
+        });
+    }
+
+    // Animación de scroll suave para enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+
+    // Efecto de cursor personalizado (opcional)
+    const cursorDot = document.createElement('div');
+    const cursorOutline = document.createElement('div');
+    cursorDot.classList.add('cursor-dot');
+    cursorOutline.classList.add('cursor-outline');
+    document.body.appendChild(cursorDot);
+    document.body.appendChild(cursorOutline);
+
+    let mouseX = 0, mouseY = 0;
+    let outlineX = 0, outlineY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursorDot.style.left = mouseX + 'px';
+        cursorDot.style.top = mouseY + 'px';
+    });
+
+    function animateOutline() {
+        outlineX += (mouseX - outlineX) * 0.1;
+        outlineY += (mouseY - outlineY) * 0.1;
+        cursorOutline.style.left = outlineX + 'px';
+        cursorOutline.style.top = outlineY + 'px';
+        requestAnimationFrame(animateOutline);
+    }
+    animateOutline();
+
+    // Efectos al pasar el cursor sobre elementos interactivos
+    const interactiveElements = document.querySelectorAll('a, button, .mode-card, .gallery-item-3d');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursorDot.style.transform = 'scale(1.5)';
+            cursorOutline.style.transform = 'scale(1.5)';
+            cursorOutline.style.borderColor = '#ff00ff';
+        });
+        el.addEventListener('mouseleave', () => {
+            cursorDot.style.transform = 'scale(1)';
+            cursorOutline.style.transform = 'scale(1)';
+            cursorOutline.style.borderColor = '#00ff88';
+        });
+    });
+
+    // Menú móvil
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+    }
+
+    // Detectar si el video se carga correctamente
+    const videos = document.querySelectorAll('video');
+    videos.forEach(video => {
+        video.addEventListener('error', () => {
+            console.warn(`Error cargando video: ${video.src}`);
+            const img = video.nextElementSibling;
+            if (img && img.tagName === 'IMG') {
+                video.style.display = 'none';
+                img.style.display = 'block';
+            }
+        });
+    });
+
+    // Efecto de carga progresiva
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observar elementos para animación
+    const animatedElements = document.querySelectorAll('.mode-card, .gallery-item-3d, .feature-item, .stat');
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+});
+
+// Efecto de sonido al hacer clic (opcional)
+function playClickSound() {
+    const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3');
+    audio.volume = 0.3;
+    audio.play().catch(e => console.log("Audio no disponible"));
 }
 
-/* Animación RGB para el Fondo o Bordes */
-@keyframes rgb-gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Navegación */
-nav {
-    background: rgba(20, 20, 20, 0.9);
-    padding: 20px;
-    text-align: center;
-    border-bottom: 3px solid transparent;
-    border-image: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff0000);
-    border-image-slice: 1;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    text-shadow: 0 0 10px #00f2ff;
-}
-
-/* Efecto RGB en Títulos y Contenedores */
-.rgb-text {
-    background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff0000);
-    background-size: 300% 100%;
-    animation: rgb-gradient 5s linear infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.container {
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 20px;
-}
-
-.card {
-    background: #1a1a1a;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #333;
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: scale(1.02);
-    border-color: #00f2ff;
-}
+// Agregar sonido a botones importantes
+document.querySelectorAll('.btn, .nav-link, .mode-btn').forEach(button => {
+    button.addEventListener('click', playClickSound);
+});
