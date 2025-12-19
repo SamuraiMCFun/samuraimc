@@ -3,61 +3,477 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nivorxy | Bienvenidos</title>
+    <title>Nivorxy | Una experiencia única de Minecraft</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <!-- Efectos de partículas -->
+    <div id="particles-js"></div>
+    
+    <!-- Fondo con video -->
+    <div class="background-3d">
+        <video autoplay muted loop playsinline class="background-video">
+            <source src="assets/fondo.webm" type="video/webm">
+            <source src="assets/fondo.mp4" type="video/mp4">
+            Tu navegador no soporta videos.
+        </video>
+        <div class="overlay"></div>
+        <div class="scanlines"></div>
+    </div>
+
+    <!-- Navbar mejorada -->
     <nav class="navbar">
-        <div class="logo">NIVORXY</div>
-        <div class="links">
-            <a href="index.html" class="active">Inicio</a>
-            <a href="noticias.html">Noticias</a>
-            <a href="staffteam.html">Staff</a>
-            <a href="mediateam.html">Media</a>
-            <a href="enproceso.html">Tienda</a>
-            <a href="https://discord.gg/2GBnEqNW" target="_blank" class="discord-nav">Discord</a>
+        <div class="nav-container">
+            <!-- Logo y texto a la izquierda -->
+            <div class="brand-section">
+                <div class="logo-animated">
+                    <video autoplay muted loop playsinline>
+                        <source src="assets/logo-animado.webm" type="video/webm">
+                        <source src="assets/logo-animado.mp4" type="video/mp4">
+                        <img src="https://media.discordapp.net/attachments/1442431615673434215/1451394439317815336/cf-flow-35oWoUJWf7QtMMZCpyyQlTxddun.png?ex=694603e7&is=6944b267&hm=40a5bb9bfc03c038147195bc05bf0357d29936e9e78f4652c394d9561ba65b5f&=&format=webp&quality=lossless&width=696&height=696" alt="Nivorxy">
+                    </video>
+                </div>
+                <div class="server-name-nav">
+                    <img src="assets/nivorxy-texto-glow.png" alt="NIVORXY" class="text-logo">
+                    <div class="logo-glow"></div>
+                </div>
+            </div>
+
+            <!-- Menú de navegación -->
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                    <div class="nav-underline"></div>
+                </a>
+                <a href="noticias.html" class="nav-link">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Noticias</span>
+                    <div class="nav-underline"></div>
+                </a>
+                <a href="staffteam.html" class="nav-link">
+                    <i class="fas fa-users"></i>
+                    <span>Staff</span>
+                    <div class="nav-underline"></div>
+                </a>
+                <a href="mediateam.html" class="nav-link">
+                    <i class="fas fa-photo-video"></i>
+                    <span>Media</span>
+                    <div class="nav-underline"></div>
+                </a>
+                <a href="https://discord.gg/2GBnEqNW" target="_blank" class="nav-link discord-btn">
+                    <i class="fab fa-discord"></i>
+                    <span>Discord</span>
+                    <div class="discord-glow"></div>
+                </a>
+            </div>
+            
+            <!-- Menú móvil -->
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
 
+    <!-- Hero Section con efecto 3D -->
     <header class="hero">
-        <h1 class="rgb-text">BIENVENIDO A NIVORXY</h1>
-        <p class="main-subtitle">Una experiencia única diseñada para la comunidad de Minecraft.</p>
-        <div class="hero-btns">
-            <a href="https://discord.gg/2GBnEqNW" target="_blank" class="btn-discord main-btn">Unirse al Discord</a>
+        <div class="hero-container">
+            <!-- Contenido principal a la izquierda -->
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <span class="tag-badge">✨ EXPERIENCIA ÚNICA</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="title-gradient">BIENVENIDO A</span>
+                    <span class="title-3d">NIVORXY</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Descubre una nueva dimensión de diversión en Minecraft. Un servidor diseñado para ofrecerte las mejores experiencias de juego con tecnología de vanguardia y una comunidad increíble.
+                </p>
+                
+                <!-- Estadísticas del servidor -->
+                <div class="server-stats">
+                    <div class="stat">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-content">
+                            <span class="stat-number" data-count="100">0</span>
+                            <span class="stat-label">Jugadores Activos</span>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-server"></i>
+                        <div class="stat-content">
+                            <span class="stat-number" data-count="3">0</span>
+                            <span class="stat-label">Modalidades</span>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-bolt"></i>
+                        <div class="stat-content">
+                            <span class="stat-number" data-count="99">0</span>
+                            <span class="stat-label">Uptime</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Botones de acción -->
+                <div class="hero-actions">
+                    <a href="https://discord.gg/2GBnEqNW" target="_blank" class="btn btn-primary btn-glow">
+                        <i class="fab fa-discord"></i>
+                        <span>Únete al Discord</span>
+                        <div class="btn-sparkle"></div>
+                    </a>
+                    <a href="#" class="btn btn-secondary btn-glow" id="copy-ip">
+                        <i class="fas fa-copy"></i>
+                        <span>IP: play.nivorxy.net</span>
+                        <div class="btn-sparkle"></div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Modelo 3D a la derecha -->
+            <div class="hero-model">
+                <div class="model-container">
+                    <video autoplay muted loop playsinline class="hero-video">
+                        <source src="assets/hero-animation.webm" type="video/webm">
+                        <source src="assets/hero-animation.mp4" type="video/mp4">
+                    </video>
+                    <div class="model-glow"></div>
+                    <div class="model-orbits">
+                        <div class="orbit orbit-1"></div>
+                        <div class="orbit orbit-2"></div>
+                        <div class="orbit orbit-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flecha de scroll -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>Desplázate para descubrir</p>
         </div>
     </header>
 
     <main class="content-wrapper">
-        <section class="info-section">
-            <h2 class="section-title">¿Qué es Nivorxy?</h2>
-            <p>Nivorxy no es solo una network más; es un proyecto nacido de la pasión por crear un entorno de juego justo, optimizado y divertido. Nuestra meta es ofrecer modalidades clásicas con toques innovadores.</p>
+        <!-- Sección: Qué es Nivorxy -->
+        <section class="section" id="about">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-text">¿QUÉ ES NIVORXY?</span>
+                    <div class="title-underline"></div>
+                </h2>
+                <p class="section-subtitle">Más que un servidor, una comunidad vibrante</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Nivorxy nace de la pasión por crear el servidor de Minecraft definitivo. Combinamos tecnología de punta con una atención meticulosa a los detalles para ofrecerte una experiencia de juego incomparable.</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt feature-icon"></i>
+                            <div>
+                                <h4>Anti-Cheat Avanzado</h4>
+                                <p>Sistema de detección de hacks de última generación</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-tachometer-alt feature-icon"></i>
+                            <div>
+                                <h4>Rendimiento Óptimo</h4>
+                                <p>0% de lag con nuestra infraestructura profesional</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-heart feature-icon"></i>
+                            <div>
+                                <h4>Comunidad Activa</h4>
+                                <p>Más de 500 jugadores activos y en crecimiento</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-media">
+                    <!-- Video showcase arreglado -->
+                    <div class="video-showcase-3d">
+                        <div class="video-frame">
+                            <video autoplay muted loop playsinline controls class="showcase-video">
+                                <source src="assets/preview-servidor.webm" type="video/webm">
+                                <source src="assets/preview-servidor.mp4" type="video/mp4">
+                                Tu navegador no soporta el video.
+                            </video>
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-glow-effect"></div>
+                        <div class="video-caption">
+                            <h3>Explora Nuestros Mundos</h3>
+                            <p>KitPVP, SlimeFun y Survival extremo te esperan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section class="features-grid">
-            <div class="feature-card">
-                <h3>Comunidad Activa</h3>
-                <p>Nos enfocamos en mantener un ambiente sano donde cada jugador cuenta. El respeto y la diversión son nuestra base.</p>
+        <!-- Sección: Modalidades -->
+        <section class="section" id="modes">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-text">MODALIDADES</span>
+                    <div class="title-underline"></div>
+                </h2>
+                <p class="section-subtitle">Elige tu estilo de juego favorito</p>
             </div>
-            <div class="feature-card">
-                <h3>Infraestructura Pro</h3>
-                <p>Contamos con servidores de alto rendimiento para asegurar que tu experiencia sea fluida 24/7 y sin lag.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Soporte Directo</h3>
-                <p>¿Tienes dudas? Nuestro equipo está disponible en Discord para ayudarte en todo lo que necesites.</p>
+            
+            <div class="modes-grid">
+                <div class="mode-card card-3d" data-tilt data-tilt-glare="true">
+                    <div class="mode-header">
+                        <div class="mode-icon">
+                            <i class="fas fa-fist-raised"></i>
+                        </div>
+                        <h3>KitPVP</h3>
+                        <span class="mode-status">🟢 EN LÍNEA</span>
+                    </div>
+                    <div class="mode-content">
+                        <p>Combate intenso con kits personalizados. Domina el campo de batalla y conviértete en el mejor guerrero.</p>
+                        <ul class="mode-features">
+                            <li><i class="fas fa-check"></i> Kits épicos personalizables</li>
+                            <li><i class="fas fa-check"></i> Arenas diseñadas profesionalmente</li>
+                            <li><i class="fas fa-check"></i> Sistema de ranking competitivo</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="mode-btn">Jugar ahora</a>
+                    <div class="card-glow"></div>
+                </div>
+                
+                <div class="mode-card card-3d" data-tilt data-tilt-glare="true">
+                    <div class="mode-header">
+                        <div class="mode-icon">
+                            <i class="fas fa-slime"></i>
+                        </div>
+                        <h3>SlimeFun</h3>
+                        <span class="mode-status">🟢 EN LÍNEA</span>
+                    </div>
+                    <div class="mode-content">
+                        <p>Tecnología, magia y diversión ilimitada. Crea máquinas increíbles y descubre nuevas posibilidades.</p>
+                        <ul class="mode-features">
+                            <li><i class="fas fa-check"></i> +1000 objetos personalizados</li>
+                            <li><i class="fas fa-check"></i> Sistema de energía complejo</li>
+                            <li><i class="fas fa-check"></i> Investigación tecnológica</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="mode-btn">Explorar</a>
+                    <div class="card-glow"></div>
+                </div>
+                
+                <div class="mode-card card-3d" data-tilt data-tilt-glare="true">
+                    <div class="mode-header">
+                        <div class="mode-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3>Survival Extremo</h3>
+                        <span class="mode-status">🔵 PRÓXIMAMENTE</span>
+                    </div>
+                    <div class="mode-content">
+                        <p>Supervivencia con desafíos únicos. Enfréntate a condiciones extremas y construye tu imperio.</p>
+                        <ul class="mode-features">
+                            <li><i class="fas fa-check"></i> Climas extremos y eventos</li>
+                            <li><i class="fas fa-check"></i> Economía basada en recursos</li>
+                            <li><i class="fas fa-check"></i> Sistema de misiones épicas</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="mode-btn">Esperando apertura</a>
+                    <div class="card-glow"></div>
+                </div>
             </div>
         </section>
 
-        <section class="join-info">
-            <h2 class="section-title">¿Quieres ser parte?</h2>
-            <p>Estamos en fase de desarrollo. Únete a nuestra comunidad para estar al tanto de las aperturas de modalidades y convocatorias de staff.</p>
-            <a href="https://discord.gg/2GBnEqNW" target="_blank" class="discord-card-link">Entrar a la comunidad oficial</a>
+        <!-- Sección: Galería 3D -->
+        <section class="section" id="gallery">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-text">GALERÍA 3D</span>
+                    <div class="title-underline"></div>
+                </h2>
+                <p class="section-subtitle">Imágenes exclusivas de nuestros mundos</p>
+            </div>
+            
+            <div class="gallery-3d">
+                <div class="gallery-item-3d">
+                    <div class="gallery-img-container">
+                        <img src="assets/render1.png" alt="KitPVP Arena" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Arena de KitPVP</h3>
+                            <p>Combate en arenas diseñadas para la acción</p>
+                        </div>
+                    </div>
+                    <div class="gallery-label">KITPVP</div>
+                </div>
+                
+                <div class="gallery-item-3d">
+                    <div class="gallery-img-container">
+                        <img src="assets/render2.png" alt="SlimeFun Laboratorio" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Laboratorio SlimeFun</h3>
+                            <p>Tecnología avanzada para crear máquinas</p>
+                        </div>
+                    </div>
+                    <div class="gallery-label">SLIMEFUN</div>
+                </div>
+                
+                <div class="gallery-item-3d">
+                    <div class="gallery-img-container">
+                        <img src="assets/render3.png" alt="Survival Mundo" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Mundo Survival</h3>
+                            <p>Supervivencia en condiciones extremas</p>
+                        </div>
+                    </div>
+                    <div class="gallery-label">SURVIVAL</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Unirse -->
+        <section class="section" id="join">
+            <div class="join-container">
+                <div class="join-content">
+                    <h2 class="join-title">¿LISTO PARA LA AVENTURA?</h2>
+                    <p class="join-subtitle">Únete a nuestra comunidad y sé parte de la experiencia Nivorxy</p>
+                    
+                    <div class="join-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h4>Únete a Discord</h4>
+                            <p>Conéctate con nuestra comunidad activa</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h4>Obtén la IP</h4>
+                            <p>Conéctate a play.nivorxy.net</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h4>¡Comienza a jugar!</h4>
+                            <p>Explora todas nuestras modalidades</p>
+                        </div>
+                    </div>
+                    
+                    <div class="join-buttons">
+                        <a href="https://discord.gg/2GBnEqNW" target="_blank" class="btn btn-discord-large">
+                            <i class="fab fa-discord"></i>
+                            <span>Discord Oficial</span>
+                            <div class="pulse-effect"></div>
+                        </a>
+                        <a href="#" class="btn btn-ip-large" id="copy-ip-2">
+                            <i class="fas fa-server"></i>
+                            <span>play.nivorxy.net</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="join-visual">
+                    <div class="visual-3d">
+                        <div class="cube">
+                            <div class="face front"></div>
+                            <div class="face back"></div>
+                            <div class="face right"></div>
+                            <div class="face left"></div>
+                            <div class="face top"></div>
+                            <div class="face bottom"></div>
+                        </div>
+                        <div class="visual-glow"></div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
+    <!-- Footer mejorado -->
     <footer class="footer">
-        <p>&copy; 2025 Nivorxy Network. <a href="https://discord.gg/2GBnEqNW" target="_blank">Discord Oficial</a></p>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <video autoplay muted loop playsinline>
+                        <source src="assets/logo-animado.webm" type="video/webm">
+                        <img src="https://media.discordapp.net/attachments/1442431615673434215/1451394439317815336/cf-flow-35oWoUJWf7QtMMZCpyyQlTxddun.png?ex=694603e7&is=6944b267&hm=40a5bb9bfc03c038147195bc05bf0357d29936e9e78f4652c394d9561ba65b5f&=&format=webp&quality=lossless&width=696&height=696" alt="Nivorxy">
+                    </video>
+                </div>
+                <p class="footer-description">
+                    Servidor de Minecraft dedicado a ofrecer la mejor experiencia de juego con tecnología de vanguardia y una comunidad increíble.
+                </p>
+                <div class="social-links">
+                    <a href="https://discord.gg/2GBnEqNW" target="_blank" class="social-link">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <div class="links-column">
+                    <h4>Servidor</h4>
+                    <a href="#">KitPVP</a>
+                    <a href="#">SlimeFun</a>
+                    <a href="#">Survival</a>
+                    <a href="#">Tienda</a>
+                </div>
+                <div class="links-column">
+                    <h4>Comunidad</h4>
+                    <a href="#">Foro</a>
+                    <a href="#">Staff</a>
+                    <a href="#">Media Team</a>
+                    <a href="#">Eventos</a>
+                </div>
+                <div class="links-column">
+                    <h4>Legal</h4>
+                    <a href="#">Términos</a>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Reglas</a>
+                    <a href="#">Soporte</a>
+                </div>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h4>Noticias por Email</h4>
+                <p>Recibe actualizaciones sobre nuevas características y eventos.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="tu@email.com">
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Nivorxy Network. Todos los derechos reservados.</p>
+            <p class="colombian-accent">¡Parce, qué esperas para unirte a la diversión! 🎮</p>
+        </div>
     </footer>
-</body>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
