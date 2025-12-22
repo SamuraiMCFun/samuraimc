@@ -2,7 +2,7 @@
 let selectedProduct = null;
 let selectedPrice = null;
 let mercadoPagoLink = null;
-let discordServerLink = "https://discord.gg/tu-link-aqui"; // CAMBIA ESTE LINK POR TU DISCORD
+let discordServerLink = "https://discord.gg/hDQA99BTpb"; // CAMBIA ESTE LINK POR TU DISCORD
 
 // Configuración de enlaces de Mercado Pago
 // REEMPLAZA ESTOS LINKS CON TUS LINKS REALES DE MERCADO PAGO
