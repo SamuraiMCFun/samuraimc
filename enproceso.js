@@ -1,7 +1,45 @@
 // Configuración inicial
 let selectedProduct = null;
 let selectedPrice = null;
-let paypalButtonsRendered = false;
+let mercadoPagoLink = null;
+let discordServerLink = "https://discord.gg/tu-link-aqui"; // CAMBIA ESTE LINK POR TU DISCORD
+
+// Configuración de enlaces de Mercado Pago
+// REEMPLAZA ESTOS LINKS CON TUS LINKS REALES DE MERCADO PAGO
+const mercadoPagoLinks = {
+    // Rangos
+    "Rango Ares": "https://mp-link-ares",
+    "Rango Hades": "https://mp-link-hades",
+    "Rango Hermes": "https://mp-link-hermes",
+    "Rango Afrodita": "https://mp-link-afrodita",
+    "Rango Apolo": "https://mp-link-apolo",
+    "Rango Kraken": "https://mp-link-kraken",
+    "Rango Zeus": "https://mp-link-zeus",
+    "Rango Poseidon": "https://mp-link-poseidon",
+    "Rango Nivorxy": "https://mp-link-nivorxy",
+    "Rango Nivorxy+": "https://mp-link-nivorxy-plus",
+    
+    // Tags
+    "Tag Inmortal": "https://mp-link-tag-inmortal",
+    "Tag Op": "https://mp-link-tag-op",
+    "Tag God": "https://mp-link-tag-god",
+    "Tag Chaos": "https://mp-link-tag-chaos",
+    "Tag Mythic": "https://mp-link-tag-mythic",
+    "Tag Void": "https://mp-link-tag-void",
+    "Tag Omega": "https://mp-link-tag-omega",
+    "Tag Personalizado": "https://mp-link-tag-personal",
+    
+    // Unlock/Extras
+    "Pack Cosmético Completo": "https://mp-link-cosmeticos",
+    "Unban Modalidad": "https://mp-link-unban-modalidad",
+    "Unban Global": "https://mp-link-unban-global",
+    "Unban Discord": "https://mp-link-unban-discord",
+    "UnBlacklist": "https://mp-link-unblacklist",
+    
+    // Coins
+    "10,000 Coins": "https://mp-link-coins-10000",
+    "50,000 Coins": "https://mp-link-coins-50000"
+};
 
 // Crear partículas animadas en el fondo
 function createParticles() {
@@ -12,16 +50,13 @@ function createParticles() {
         const particle = document.createElement('div');
         particle.classList.add('particle');
         
-        // Tamaño aleatorio
         const size = Math.random() * 6 + 2;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
         
-        // Posición aleatoria
         particle.style.left = `${Math.random() * 100}%`;
         particle.style.top = `${Math.random() * 100}%`;
         
-        // Color verde con variación
         const greenValue = Math.floor(Math.random() * 100 + 100);
         const colorType = Math.random();
         
@@ -33,7 +68,6 @@ function createParticles() {
             particle.style.backgroundColor = `rgba(0, ${Math.floor(greenValue * 1.2)}, 255, ${Math.random() * 0.3 + 0.1})`;
         }
         
-        // Animación
         const duration = Math.random() * 20 + 10;
         const delay = Math.random() * 5;
         particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
@@ -49,9 +83,7 @@ function filterProducts() {
     
     categoryBtns.forEach(btn => {
         btn.addEventListener('click', function() {
-            // Remover clase active de todos los botones
             categoryBtns.forEach(b => b.classList.remove('active'));
-            // Agregar clase active al botón clickeado
             this.classList.add('active');
             
             const category = this.dataset.category;
@@ -83,81 +115,43 @@ function setupPurchaseButtons() {
         button.addEventListener('click', function() {
             selectedProduct = this.dataset.product;
             selectedPrice = this.dataset.price;
+            mercadoPagoLink = this.dataset.mpLink || mercadoPagoLinks[selectedProduct];
             
             // Actualizar modal con información del producto
             document.getElementById('modalProductName').textContent = selectedProduct;
             document.getElementById('modalProductPrice').textContent = `$${selectedPrice}`;
             
+            // Actualizar link de Discord
+            document.getElementById('discordLink').textContent = discordServerLink;
+            document.getElementById('successDiscordLink').textContent = discordServerLink;
+            
             // Mostrar modal de compra
             document.getElementById('purchaseModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
+            
+            // Mostrar instrucciones
+            document.getElementById('mercadoPagoInstructions').style.display = 'block';
         });
     });
 }
 
-// Configurar PayPal
-function setupPayPal() {
-    // Reemplazar 'TU_CLIENT_ID_AQUI' con tu Client ID real de PayPal
-    paypal.Buttons({
-        style: {
-            layout: 'vertical',
-            color: 'gold',
-            shape: 'pill',
-            label: 'paypal'
-        },
-        createOrder: function(data, actions) {
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            
-            return actions.order.create({
-                purchase_units: [{
-                    description: `${selectedProduct} - ${username}`,
-                    amount: {
-                        value: selectedPrice,
-                        currency_code: 'USD'
-                    }
-                }],
-                application_context: {
-                    shipping_preference: 'NO_SHIPPING'
-                }
-            });
-        },
-        onApprove: function(data, actions) {
-            return actions.order.capture().then(function(details) {
-                // Enviar notificación al staff
-                sendOrderToStaff(details);
-                
-                // Mostrar modal de éxito
-                showSuccessModal(details);
-                
-                // Enviar correo de confirmación al usuario
-                sendConfirmationEmail(details);
-            });
-        },
-        onError: function(err) {
-            console.error('Error en PayPal:', err);
-            alert('Ocurrió un error al procesar el pago. Por favor, intenta de nuevo.');
-        }
-    }).render('#paypal-button-container');
-}
-
-// Enviar pedido al staff (simulación)
+// Enviar pedido al sistema (simulación)
 function sendOrderToStaff(orderDetails) {
     const username = document.getElementById('username').value;
     const email = document.getElementById('email').value;
+    const discordUser = document.getElementById('discordUser').value;
     const transactionId = orderDetails.id;
-    
-    // Aquí normalmente enviarías esto a un servidor
-    // Para este ejemplo, simularemos el envío
     
     const orderData = {
         product: selectedProduct,
         price: selectedPrice,
         username: username,
         email: email,
+        discordUser: discordUser,
         transactionId: transactionId,
         date: new Date().toISOString(),
-        status: 'pending'
+        status: 'pending',
+        mercadoPagoLink: mercadoPagoLink
     };
     
     // Guardar en localStorage para simulación
@@ -165,7 +159,7 @@ function sendOrderToStaff(orderDetails) {
     orders.push(orderData);
     localStorage.setItem('nivorxy_orders', JSON.stringify(orders));
     
-    console.log('Pedido enviado al staff:', orderData);
+    console.log('Pedido registrado:', orderData);
     
     // Aquí podrías hacer una petición HTTP a tu servidor
     // fetch('/api/orders', {
@@ -173,19 +167,27 @@ function sendOrderToStaff(orderDetails) {
     //     headers: { 'Content-Type': 'application/json' },
     //     body: JSON.stringify(orderData)
     // });
+    
+    return orderData;
 }
 
 // Mostrar modal de éxito
 function showSuccessModal(orderDetails) {
-    const transactionId = orderDetails.id;
     const username = document.getElementById('username').value;
+    const discordUser = document.getElementById('discordUser').value;
+    const transactionId = 'NIV-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+    const now = new Date();
     
     // Actualizar información en el modal
     document.getElementById('transactionId').textContent = transactionId;
+    document.getElementById('transactionDate').textContent = 
+        `${now.getDate().toString().padStart(2, '0')}/${(now.getMonth() + 1).toString().padStart(2, '0')}/${now.getFullYear()}`;
     document.getElementById('successProduct').textContent = selectedProduct;
     document.getElementById('successPrice').textContent = `$${selectedPrice}`;
-    document.getElementById('successMessage').textContent = 
-        `¡Gracias por tu compra, ${username}! Tu pedido ha sido procesado correctamente.`;
+    document.getElementById('successUsername').textContent = username;
+    
+    document.getElementById('successMessage').innerHTML = 
+        `¡Gracias por tu compra, <strong>${username}</strong>!<br>Ahora sigue estos pasos para recibir tu producto.`;
     
     // Ocultar modal de compra
     document.getElementById('purchaseModal').style.display = 'none';
@@ -193,17 +195,20 @@ function showSuccessModal(orderDetails) {
     // Mostrar modal de éxito
     document.getElementById('successModal').style.display = 'flex';
     
+    // Registrar el pedido
+    const orderData = {
+        id: transactionId,
+        username: username,
+        discordUser: discordUser,
+        product: selectedProduct,
+        price: selectedPrice,
+        date: now.toISOString()
+    };
+    
+    sendOrderToStaff(orderData);
+    
     // Limpiar formulario
     document.getElementById('purchaseForm').reset();
-}
-
-// Enviar correo de confirmación (simulación)
-function sendConfirmationEmail(orderDetails) {
-    const email = document.getElementById('email').value;
-    const username = document.getElementById('username').value;
-    
-    // Aquí normalmente enviarías un correo real
-    console.log(`Correo enviado a ${email} - Confirmación de compra para ${username}`);
 }
 
 // Configurar modales
@@ -212,6 +217,7 @@ function setupModals() {
     const purchaseModal = document.getElementById('purchaseModal');
     const closeModalBtn = purchaseModal.querySelector('.modal-close');
     const cancelBtn = purchaseModal.querySelector('.btn-cancel');
+    const mercadoPagoBtn = document.getElementById('btnMercadoPago');
     
     // Cerrar modal con botón X
     closeModalBtn.addEventListener('click', () => {
@@ -233,6 +239,33 @@ function setupModals() {
         }
     });
     
+    // Botón de Mercado Pago
+    mercadoPagoBtn.addEventListener('click', () => {
+        // Validar formulario
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const discordUser = document.getElementById('discordUser').value;
+        const terms = document.getElementById('terms').checked;
+        
+        if (!username || !email || !discordUser || !terms) {
+            alert('Por favor, completa todos los campos y acepta los términos.');
+            return;
+        }
+        
+        // Validar que tengamos un link de Mercado Pago
+        if (!mercadoPagoLink || mercadoPagoLink === "https://mp-link-...") {
+            alert('Error: El producto no tiene un link de Mercado Pago configurado. Contacta al administrador.');
+            console.error('Falta link de Mercado Pago para:', selectedProduct);
+            return;
+        }
+        
+        // Abrir Mercado Pago en nueva pestaña
+        window.open(mercadoPagoLink, '_blank');
+        
+        // Mostrar modal de éxito con instrucciones
+        showSuccessModal();
+    });
+    
     // Modal de éxito
     const successModal = document.getElementById('successModal');
     const closeSuccessBtn = successModal.querySelector('.btn-close-success');
@@ -246,48 +279,6 @@ function setupModals() {
         if (e.target === successModal) {
             successModal.style.display = 'none';
             document.body.style.overflow = 'auto';
-        }
-    });
-    
-    // Manejar envío del formulario
-    const purchaseForm = document.getElementById('purchaseForm');
-    purchaseForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Validar formulario
-        const username = document.getElementById('username').value;
-        const email = document.getElementById('email').value;
-        const paymentMethod = document.getElementById('paymentMethod').value;
-        const terms = document.getElementById('terms').checked;
-        
-        if (!username || !email || !paymentMethod || !terms) {
-            alert('Por favor, completa todos los campos y acepta los términos.');
-            return;
-        }
-        
-        // Aquí se procesaría el pago con PayPal
-        // Por ahora, simularemos un pago exitoso
-        if (paymentMethod === 'paypal') {
-            // Mostrar botón de PayPal si no se ha mostrado
-            const paypalContainer = document.createElement('div');
-            paypalContainer.id = 'paypal-button-container';
-            purchaseForm.appendChild(paypalContainer);
-            
-            if (!paypalButtonsRendered) {
-                setupPayPal();
-                paypalButtonsRendered = true;
-            }
-        } else {
-            // Simular pago con tarjeta
-            setTimeout(() => {
-                const mockOrderDetails = {
-                    id: 'NIV-' + Math.random().toString(36).substr(2, 9).toUpperCase(),
-                    status: 'COMPLETED'
-                };
-                
-                sendOrderToStaff(mockOrderDetails);
-                showSuccessModal(mockOrderDetails);
-            }, 2000);
         }
     });
 }
@@ -337,13 +328,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Panel de administración para el staff (solo visible con contraseña)
-    // Esto es opcional y se puede activar desde la consola
+    // Panel de administración para el staff
     window.showStaffPanel = function() {
         const password = prompt('Ingresa la contraseña del staff:');
-        if (password === 'nivorxy2025') { // Cambia esta contraseña
+        if (password === 'nivorxy2025') {
             const orders = JSON.parse(localStorage.getItem('nivorxy_orders') || '[]');
-            alert(`Pedidos pendientes: ${orders.length}\n\n${JSON.stringify(orders, null, 2)}`);
+            
+            let message = `Pedidos pendientes: ${orders.length}\n\n`;
+            orders.forEach((order, index) => {
+                message += `Pedido #${index + 1}:\n`;
+                message += `Producto: ${order.product}\n`;
+                message += `Usuario: ${order.username}\n`;
+                message += `Discord: ${order.discordUser}\n`;
+                message += `Precio: $${order.price}\n`;
+                message += `Fecha: ${order.date}\n`;
+                message += `ID: ${order.transactionId}\n`;
+                message += `Status: ${order.status}\n`;
+                message += `Mercado Pago: ${order.mercadoPagoLink}\n`;
+                message += '─'.repeat(30) + '\n';
+            });
+            
+            alert(message);
         } else {
             alert('Contraseña incorrecta');
         }
@@ -364,3 +369,48 @@ function exportOrders() {
     link.click();
     document.body.removeChild(link);
 }
+
+// Configurar Discord link (llamable desde consola)
+function setDiscordLink(link) {
+    discordServerLink = link;
+    localStorage.setItem('nivorxy_discord_link', link);
+    alert(`Link de Discord actualizado a: ${link}`);
+}
+
+// Cargar Discord link guardado
+document.addEventListener('DOMContentLoaded', function() {
+    const savedLink = localStorage.getItem('nivorxy_discord_link');
+    if (savedLink) {
+        discordServerLink = savedLink;
+    }
+});
+
+// Instrucciones para el administrador
+console.log(`
+=== INSTRUCCIONES PARA CONFIGURAR LA TIENDA ===
+
+1. REEMPLAZA LOS LINKS DE MERCADO PAGO:
+   - Ve al archivo enproceso.js
+   - Busca la variable 'mercadoPagoLinks'
+   - Reemplaza cada "https://mp-link-..." con tus links reales de Mercado Pago
+
+2. CONFIGURA TU DISCORD:
+   - Ve al archivo enproceso.js
+   - Busca la variable 'discordServerLink'
+   - Reemplaza "https://discord.gg/tu-link-aqui" con tu link de Discord
+   O usa en consola: setDiscordLink("tu-link-de-discord")
+
+3. PANEL DE ADMINISTRACIÓN:
+   - En consola: showStaffPanel()
+   - Contraseña: nivorxy2025
+   - Para exportar: exportOrders()
+
+4. ACTUALIZAR PRECIOS/CONTENIDO:
+   - Modifica directamente en enproceso.html los productos
+   - Asegúrate de actualizar también los data-mp-link
+
+5. SISTEMA DE ENTREGA:
+   - Los usuarios pagan en Mercado Pago
+   - Luego abren ticket en Discord con comprobante
+   - Tú verificas y entregas el producto manualmente
+`);
