@@ -738,5 +738,81 @@ body {
     
     .modal-content {
         padding: 20px;
+
+        /* Estilos adicionales para el sistema de Mercado Pago */
+#mercadoPagoInstructions {
+    background: rgba(0, 150, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #0098ff;
+    margin-top: 20px;
+}
+
+#mercadoPagoInstructions ol {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+#mercadoPagoInstructions li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Estilo para el botón de Mercado Pago */
+.btn-mercadopago {
+    background: linear-gradient(45deg, #009ee3, #00b2ff);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-mercadopago:hover {
+    background: linear-gradient(45deg, #007bb8, #009ee3);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 158, 227, 0.4);
+}
+
+/* Animación para el botón de Mercado Pago */
+@keyframes pulse-mercadopago {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.btn-mercadopago.pulsing {
+    animation: pulse-mercadopago 2s infinite;
+}
+
+/* Responsive adicional */
+@media (max-width: 768px) {
+    #mercadoPagoInstructions ol {
+        font-size: 0.9rem;
+    }
+    
+    .btn-mercadopago {
+        padding: 12px 20px;
+        font-size: 0.9rem;
     }
 }
+
+@media (max-width: 480px) {
+    #mercadoPagoInstructions {
+        padding: 15px;
+    }
+    
+    #mercadoPagoInstructions ol {
+        padding-left: 15px;
+    }
+}
+    }
