@@ -35,104 +35,572 @@
             <button class="category-btn" data-category="rangos">
                 <i class="fas fa-crown"></i> Rangos
             </button>
-            <button class="category-btn" data-category="kits">
-                <i class="fas fa-chess-knight"></i> Kits
-            </button>
-            <button class="category-btn" data-category="coins">
-                <i class="fas fa-coins"></i> Coins
-            </button>
             <button class="category-btn" data-category="tags">
                 <i class="fas fa-tag"></i> Tags
             </button>
             <button class="category-btn" data-category="unlock">
-                <i class="fas fa-unlock"></i> Unlock
+                <i class="fas fa-unlock"></i> Unlock/Extras
+            </button>
+            <button class="category-btn" data-category="coins">
+                <i class="fas fa-coins"></i> Coins
             </button>
         </div>
 
         <!-- Grid de productos -->
         <div class="products-grid">
-            <!-- Producto 1: Rango VIP -->
+            <!-- RANGOS -->
+            <!-- Rango Ares -->
+            <div class="product-card" data-category="rangos">
+                <div class="product-badge new">
+                    <i class="fas fa-fire"></i> NUEVO
+                </div>
+                <div class="product-image">
+                    <i class="fas fa-shield"></i>
+                </div>
+                <h3 class="product-title">Rango Ares</h3>
+                <p class="product-desc">Rango inicial con beneficios básicos y acceso especial.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Tag [Ares]</span>
+                    <span><i class="fas fa-check"></i> Acceso VIP</span>
+                    <span><i class="fas fa-check"></i> 5,000 Coins</span>
+                    <span><i class="fas fa-check"></i> Soporte básico</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$2.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Rango Ares" data-price="2.99" data-mp-link="https://mp-link-ares">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- Rango Hades -->
+            <div class="product-card" data-category="rangos">
+                <div class="product-image">
+                    <i class="fas fa-skull"></i>
+                </div>
+                <h3 class="product-title">Rango Hades</h3>
+                <p class="product-desc">Acceso al inframundo con comandos exclusivos y partículas.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Tag [Hades]</span>
+                    <span><i class="fas fa-check"></i> Partículas oscuras</span>
+                    <span><i class="fas fa-check"></i> 10,000 Coins</span>
+                    <span><i class="fas fa-check"></i> Comandos exclusivos</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$4.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Rango Hades" data-price="4.99" data-mp-link="https://mp-link-hades">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- Rango Hermes -->
+            <div class="product-card" data-category="rangos">
+                <div class="product-image">
+                    <i class="fas fa-wind"></i>
+                </div>
+                <h3 class="product-title">Rango Hermes</h3>
+                <p class="product-desc">Velocidad y agilidad con beneficios mejorados.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Tag [Hermes]</span>
+                    <span><i class="fas fa-check"></i> Doble velocidad</span>
+                    <span><i class="fas fa-check"></i> 20,000 Coins</span>
+                    <span><i class="fas fa-check"></i> Acceso Beta</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$7.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Rango Hermes" data-price="7.99" data-mp-link="https://mp-link-hermes">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- Rango Afrodita -->
             <div class="product-card" data-category="rangos">
                 <div class="product-badge popular">
-                    <i class="fas fa-star"></i> POPULAR
+                    <i class="fas fa-heart"></i> POPULAR
+                </div>
+                <div class="product-image">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3 class="product-title">Rango Afrodita</h3>
+                <p class="product-desc">Belleza y encanto con cosméticos exclusivos.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Tag [Afrodita]</span>
+                    <span><i class="fas fa-check"></i> Wings rosadas</span>
+                    <span><i class="fas fa-check"></i> 30,000 Coins</span>
+                    <span><i class="fas fa-check"></i> Particulas amor</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$9.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Rango Afrodita" data-price="9.99" data-mp-link="https://mp-link-afrodita">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- Rango Apolo -->
+            <div class="product-card" data-category="rangos">
+                <div class="product-image">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <h3 class="product-title">Rango Apolo</h3>
+                <p class="product-desc">Poder solar con beneficios premium.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Tag [Apolo]</span>
+                    <span><i class="fas fa-check"></i> Aura dorada</span>
+                    <span><i class="fas fa-check"></i> 40,000 Coins</span>
+                    <span><i class="fas fa-check"></i> Comandos avanzados</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$12.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Rango Apolo" data-price="12.99" data-mp-link="https://mp-link-apolo">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- Rango Kraken -->
+            <div class="product-card" data-category="rangos">
+                <div class="product-image">
+                    <i class="fas fa-water"></i>
+                </div>
+                <h3 class="product-title">Rango Kraken</h3>
+                <p class="product-desc">Poder marino con dominación oceánica.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Tag [Kraken]</span>
+                    <span><i class="fas fa-check"></i> Particulas agua</span>
+                    <span><i class="fas fa-check"></i> 50,000 Coins</span>
+                    <span><i class="fas fa-check"></i> Wings marinas</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$15.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Rango Kraken" data-price="15.99" data-mp-link="https://mp-link-kraken">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- Rango Zeus -->
+            <div class="product-card" data-category="rangos">
+                <div class="product-badge exclusive">
+                    <i class="fas fa-bolt"></i> EXCLUSIVO
+                </div>
+                <div class="product-image">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="product-title">Rango Zeus</h3>
+                <p class="product-desc">Poder supremo con rayos y dominio total.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Tag [Zeus]</span>
+                    <span><i class="fas fa-check"></i> Rayos personalizados</span>
+                    <span><i class="fas fa-check"></i> 75,000 Coins</span>
+                    <span><i class="fas fa-check"></i> Soporte VIP</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$18.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Rango Zeus" data-price="18.99" data-mp-link="https://mp-link-zeus">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- Rango Poseidon -->
+            <div class="product-card" data-category="rangos">
+                <div class="product-image">
+                    <i class="fas fa-trident"></i>
+                </div>
+                <h3 class="product-title">Rango Poseidon</h3>
+                <p class="product-desc">Dios del mar con control absoluto de aguas.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Tag [Poseidon]</span>
+                    <span><i class="fas fa-check"></i> Tridente épico</span>
+                    <span><i class="fas fa-check"></i> 100,000 Coins</span>
+                    <span><i class="fas fa-check"></i> Mascota marina</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$22.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Rango Poseidon" data-price="22.99" data-mp-link="https://mp-link-poseidon">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- Rango Nivorxy -->
+            <div class="product-card" data-category="rangos">
+                <div class="product-badge exclusive">
+                    <i class="fas fa-crown"></i> ÉPICO
                 </div>
                 <div class="product-image">
                     <i class="fas fa-crown"></i>
                 </div>
-                <h3 class="product-title">Rango VIP</h3>
-                <p class="product-desc">Acceso a comandos exclusivos, particulas y más beneficios.</p>
+                <h3 class="product-title">Rango Nivorxy</h3>
+                <p class="product-desc">Rango legendario con todos los privilegios.</p>
                 <div class="product-features">
-                    <span><i class="fas fa-check"></i> Comandos VIP</span>
-                    <span><i class="fas fa-check"></i> Partículas únicas</span>
-                    <span><i class="fas fa-check"></i> Tag [VIP]</span>
-                    <span><i class="fas fa-check"></i> Acceso Beta</span>
+                    <span><i class="fas fa-check"></i> Tag [Nivorxy]</span>
+                    <span><i class="fas fa-check"></i> Todos los beneficios</span>
+                    <span><i class="fas fa-check"></i> 150,000 Coins</span>
+                    <span><i class="fas fa-check"></i> Soporte personal</span>
                 </div>
                 <div class="product-price">
-                    <span class="price">$4.99</span>
-                    <span class="discount">$9.99</span>
+                    <span class="price">$25.99</span>
+                    <span class="period">USD</span>
                 </div>
-                <button class="btn-buy" data-product="Rango VIP" data-price="4.99">
+                <button class="btn-buy" data-product="Rango Nivorxy" data-price="25.99" data-mp-link="https://mp-link-nivorxy">
                     <i class="fas fa-shopping-cart"></i> Comprar Ahora
                 </button>
             </div>
 
-            <!-- Producto 2: Rango MVP -->
+            <!-- Rango Nivorxy+ -->
             <div class="product-card" data-category="rangos">
                 <div class="product-badge exclusive">
-                    <i class="fas fa-gem"></i> EXCLUSIVO
+                    <i class="fas fa-star"></i> MÁXIMO
+                </div>
+                <div class="product-image">
+                    <i class="fas fa-infinity"></i>
+                </div>
+                <h3 class="product-title">Rango Nivorxy+</h3>
+                <p class="product-desc">Rango definitivo con beneficios infinitos.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Tag [Nivorxy+]</span>
+                    <span><i class="fas fa-check"></i> Acceso total</span>
+                    <span><i class="fas fa-check"></i> 250,000 Coins</span>
+                    <span><i class="fas fa-check"></i> Owner personal</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$32.99</span>
+                    <span class="original">$49.99</span>
+                </div>
+                <button class="btn-buy" data-product="Rango Nivorxy+" data-price="32.99" data-mp-link="https://mp-link-nivorxy-plus">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- TAGS -->
+            <!-- Tag Inmortal -->
+            <div class="product-card" data-category="tags">
+                <div class="product-image">
+                    <i class="fas fa-cross"></i>
+                </div>
+                <h3 class="product-title">Tag Inmortal</h3>
+                <p class="product-desc">Tag especial que demuestra tu inmortalidad.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Tag [Inmortal]</span>
+                    <span><i class="fas fa-check"></i> Color dorado</span>
+                    <span><i class="fas fa-check"></i> Permanente</span>
+                    <span><i class="fas fa-check"></i> Visible en chat</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$2.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Tag Inmortal" data-price="2.99" data-mp-link="https://mp-link-tag-inmortal">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- Tag Op -->
+            <div class="product-card" data-category="tags">
+                <div class="product-image">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3 class="product-title">Tag Op</h3>
+                <p class="product-desc">Demuestra que eres operador experto.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Tag [Op]</span>
+                    <span><i class="fas fa-check"></i> Color rojo brillante</span>
+                    <span><i class="fas fa-check"></i> Efecto especial</span>
+                    <span><i class="fas fa-check"></i> Respeto automático</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$2.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Tag Op" data-price="2.99" data-mp-link="https://mp-link-tag-op">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- Tag God -->
+            <div class="product-card" data-category="tags">
+                <div class="product-badge popular">
+                    <i class="fas fa-star"></i> POPULAR
+                </div>
+                <div class="product-image">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3 class="product-title">Tag God</h3>
+                <p class="product-desc">Sé reconocido como una divinidad.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Tag [God]</span>
+                    <span><i class="fas fa-check"></i> Color celestial</span>
+                    <span><i class="fas fa-check"></i> Brillo especial</span>
+                    <span><i class="fas fa-check"></i> Admiración automática</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$2.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Tag God" data-price="2.99" data-mp-link="https://mp-link-tag-god">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- Tag Chaos -->
+            <div class="product-card" data-category="tags">
+                <div class="product-image">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <h3 class="product-title">Tag Chaos</h3>
+                <p class="product-desc">Representa el caos y la destrucción.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Tag [Chaos]</span>
+                    <span><i class="fas fa-check"></i> Color fuego</span>
+                    <span><i class="fas fa-check"></i> Efecto ardiente</span>
+                    <span><i class="fas fa-check"></i> Miedo automático</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$3.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Tag Chaos" data-price="3.99" data-mp-link="https://mp-link-tag-chaos">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- Tag Mythic -->
+            <div class="product-card" data-category="tags">
+                <div class="product-image">
+                    <i class="fas fa-dragon"></i>
+                </div>
+                <h3 class="product-title">Tag Mythic</h3>
+                <p class="product-desc">Accede a la mitología legendaria.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Tag [Mythic]</span>
+                    <span><i class="fas fa-check"></i> Color púrpura</span>
+                    <span><i class="fas fa-check"></i> Efecto místico</span>
+                    <span><i class="fas fa-check"></i> Leyenda automática</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$4.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Tag Mythic" data-price="4.99" data-mp-link="https://mp-link-tag-mythic">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- Tag Void -->
+            <div class="product-card" data-category="tags">
+                <div class="product-image">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3 class="product-title">Tag Void</h3>
+                <p class="product-desc">Vacío absoluto y poder infinito.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Tag [Void]</span>
+                    <span><i class="fas fa-check"></i> Color negro</span>
+                    <span><i class="fas fa-check"></i> Efecto oscuridad</span>
+                    <span><i class="fas fa-check"></i> Misterio automático</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$4.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Tag Void" data-price="4.99" data-mp-link="https://mp-link-tag-void">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- Tag Omega -->
+            <div class="product-card" data-category="tags">
+                <div class="product-badge exclusive">
+                    <i class="fas fa-infinity"></i> ULTIMATE
+                </div>
+                <div class="product-image">
+                    <i class="fas fa-infinity"></i>
+                </div>
+                <h3 class="product-title">Tag Omega</h3>
+                <p class="product-desc">El final y el principio, todo en uno.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Tag [Omega]</span>
+                    <span><i class="fas fa-check"></i> Color arcoíris</span>
+                    <span><i class="fas fa-check"></i> Efecto cambiante</span>
+                    <span><i class="fas fa-check"></i> Respeto máximo</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$5.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Tag Omega" data-price="5.99" data-mp-link="https://mp-link-tag-omega">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- Tag Personalizado -->
+            <div class="product-card" data-category="tags">
+                <div class="product-badge exclusive">
+                    <i class="fas fa-edit"></i> PERSONAL
+                </div>
+                <div class="product-image">
+                    <i class="fas fa-edit"></i>
+                </div>
+                <h3 class="product-title">Tag Personalizado</h3>
+                <p class="product-desc">Crea tu propio tag único y especial.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Tag personalizado</span>
+                    <span><i class="fas fa-check"></i> Color a elección</span>
+                    <span><i class="fas fa-check"></i> Formato especial</span>
+                    <span><i class="fas fa-check"></i> Diseño exclusivo</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$9.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Tag Personalizado" data-price="9.99" data-mp-link="https://mp-link-tag-personal">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- UNLOCK/EXTRAS -->
+            <!-- Pack completo de cosmeticos -->
+            <div class="product-card" data-category="unlock">
+                <div class="product-badge popular">
+                    <i class="fas fa-gem"></i> POPULAR
                 </div>
                 <div class="product-image">
                     <i class="fas fa-gem"></i>
                 </div>
-                <h3 class="product-title">Rango MVP+</h3>
-                <p class="product-desc">Rango máximo con todos los beneficios y cosméticos exclusivos.</p>
+                <h3 class="product-title">Pack Cosmético Completo</h3>
+                <p class="product-desc">Desbloquea todos los cosméticos del servidor.</p>
                 <div class="product-features">
-                    <span><i class="fas fa-check"></i> Todos los beneficios VIP</span>
-                    <span><i class="fas fa-check"></i +> Wings personalizadas</span>
-                    <span><i class="fas fa-check"></i> Tag [MVP+]</span>
-                    <span><i class="fas fa-check"></i> Soporte prioritario</span>
+                    <span><i class="fas fa-check"></i> Todas las wings</span>
+                    <span><i class="fas fa-check"></i> Todas las partículas</span>
+                    <span><i class="fas fa-check"></i> Todas las mascotas</span>
+                    <span><i class="fas fa-check"></i> Actualizaciones free</span>
                 </div>
                 <div class="product-price">
-                    <span class="price">$14.99</span>
+                    <span class="price">$9.99</span>
                     <span class="original">$19.99</span>
                 </div>
-                <button class="btn-buy" data-product="Rango MVP+" data-price="14.99">
+                <button class="btn-buy" data-product="Pack Cosmético Completo" data-price="9.99" data-mp-link="https://mp-link-cosmeticos">
                     <i class="fas fa-shopping-cart"></i> Comprar Ahora
                 </button>
             </div>
 
-            <!-- Producto 3: Kit PvP Pro -->
-            <div class="product-card" data-category="kits">
+            <!-- Unban Modalidad -->
+            <div class="product-card" data-category="unlock">
                 <div class="product-image">
-                    <i class="fas fa-shield-alt"></i>
+                    <i class="fas fa-user-check"></i>
                 </div>
-                <h3 class="product-title">Kit PvP Pro</h3>
-                <p class="product-desc">Equipamiento completo para dominar en PvP con encantamientos exclusivos.</p>
+                <h3 class="product-title">Unban Modalidad</h3>
+                <p class="product-desc">Desbaneo de una modalidad específica.</p>
                 <div class="product-features">
-                    <span><i class="fas fa-check"></i> Armadura Protection IV</span>
-                    <span><i class="fas fa-check"></i> Espada Sharpness V</span>
-                    <span><i class="fas fa-check"></i> 64 Golden Apples</span>
-                    <span><i class="fas fa-check"></i> Ender Pearls x16</span>
+                    <span><i class="fas fa-check"></i> Unban 1 modalidad</span>
+                    <span><i class="fas fa-check"></i> Revisión inmediata</span>
+                    <span><i class="fas fa-check"></i> Sin historial</span>
+                    <span><i class="fas fa-check"></i> Proceso rápido</span>
                 </div>
                 <div class="product-price">
-                    <span class="price">$2.99</span>
-                    <span class="period">/mensual</span>
+                    <span class="price">$12.99</span>
+                    <span class="period">USD</span>
                 </div>
-                <button class="btn-buy" data-product="Kit PvP Pro" data-price="2.99">
+                <button class="btn-buy" data-product="Unban Modalidad" data-price="12.99" data-mp-link="https://mp-link-unban-modalidad">
                     <i class="fas fa-shopping-cart"></i> Comprar Ahora
                 </button>
             </div>
 
-            <!-- Producto 4: 10,000 Coins -->
-            <div class="product-card" data-category="coins">
+            <!-- Unban Global -->
+            <div class="product-card" data-category="unlock">
                 <div class="product-badge offer">
-                    <i class="fas fa-fire"></i> OFERTA
+                    <i class="fas fa-globe"></i> GLOBAL
+                </div>
+                <div class="product-image">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3 class="product-title">Unban Global</h3>
+                <p class="product-desc">Desbaneo completo de todas las modalidades.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Unban total</span>
+                    <span><i class="fas fa-check"></i> Todas modalidades</span>
+                    <span><i class="fas fa-check"></i> Limpieza de ban</span>
+                    <span><i class="fas fa-check"></i> Restauración total</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$29.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Unban Global" data-price="29.99" data-mp-link="https://mp-link-unban-global">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- Unban Discord -->
+            <div class="product-card" data-category="unlock">
+                <div class="product-image">
+                    <i class="fab fa-discord"></i>
+                </div>
+                <h3 class="product-title">Unban Discord</h3>
+                <p class="product-desc">Desbaneo del servidor de Discord oficial.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Unban Discord</span>
+                    <span><i class="fas fa-check"></i> Restauración roles</span>
+                    <span><i class="fas fa-check"></i> Acceso completo</span>
+                    <span><i class="fas fa-check"></i> Proceso inmediato</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$4.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="Unban Discord" data-price="4.99" data-mp-link="https://mp-link-unban-discord">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- UnBlacklist -->
+            <div class="product-card" data-category="unlock">
+                <div class="product-badge exclusive">
+                    <i class="fas fa-user-secret"></i> PREMIUM
+                </div>
+                <div class="product-image">
+                    <i class="fas fa-user-secret"></i>
+                </div>
+                <h3 class="product-title">UnBlacklist</h3>
+                <p class="product-desc">Remoción completa de lista negra global.</p>
+                <div class="product-features">
+                    <span><i class="fas fa-check"></i> Limpieza total</span>
+                    <span><i class="fas fa-check"></i> Revisión manual</span>
+                    <span><i class="fas fa-check"></i> Garantía 100%</span>
+                    <span><i class="fas fa-check"></i> Soporte VIP</span>
+                </div>
+                <div class="product-price">
+                    <span class="price">$49.99</span>
+                    <span class="period">USD</span>
+                </div>
+                <button class="btn-buy" data-product="UnBlacklist" data-price="49.99" data-mp-link="https://mp-link-unblacklist">
+                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                </button>
+            </div>
+
+            <!-- COINS -->
+            <!-- 10,000 Coins -->
+            <div class="product-card" data-category="coins">
+                <div class="product-badge new">
+                    <i class="fas fa-coins"></i> NUEVO
                 </div>
                 <div class="product-image">
                     <i class="fas fa-coins"></i>
                 </div>
                 <h3 class="product-title">10,000 Coins</h3>
-                <p class="product-desc">Moneda virtual para la tienda del servidor. Compra objetos especiales.</p>
+                <p class="product-desc">Moneda virtual para compras internas.</p>
                 <div class="product-features">
                     <span><i class="fas fa-check"></i> +2,000 Coins extra</span>
                     <span><i class="fas fa-check"></i> Transferible</span>
@@ -143,54 +611,32 @@
                     <span class="price">$4.99</span>
                     <span class="value">(500 coins/$)</span>
                 </div>
-                <button class="btn-buy" data-product="10,000 Coins" data-price="4.99">
+                <button class="btn-buy" data-product="10,000 Coins" data-price="4.99" data-mp-link="https://mp-link-coins-10000">
                     <i class="fas fa-shopping-cart"></i> Comprar Ahora
                 </button>
             </div>
 
-            <!-- Producto 5: Tag Personalizado -->
-            <div class="product-card" data-category="tags">
-                <div class="product-image">
-                    <i class="fas fa-tag"></i>
-                </div>
-                <h3 class="product-title">Tag Personalizado</h3>
-                <p class="product-desc">Crea tu propio tag único en el chat con colores y formato personalizado.</p>
-                <div class="product-features">
-                    <span><i class="fas fa-check"></i> Color personalizado</span>
-                    <span><i class="fas fa-check"></i> Hasta 12 caracteres</span>
-                    <span><i class="fas fa-check"></i> Formato especial</span>
-                    <span><i class="fas fa-check"></i> Permanece para siempre</span>
-                </div>
-                <div class="product-price">
-                    <span class="price">$6.99</span>
-                    <span class="period">único</span>
-                </div>
-                <button class="btn-buy" data-product="Tag Personalizado" data-price="6.99">
-                    <i class="fas fa-shopping-cart"></i> Comprar Ahora
-                </button>
-            </div>
-
-            <!-- Producto 6: Unlock Cosméticos -->
-            <div class="product-card" data-category="unlock">
-                <div class="product-badge new">
-                    <i class="fas fa-rocket"></i> NUEVO
+            <!-- 50,000 Coins -->
+            <div class="product-card" data-category="coins">
+                <div class="product-badge offer">
+                    <i class="fas fa-gift"></i> OFERTA
                 </div>
                 <div class="product-image">
-                    <i class="fas fa-unlock-alt"></i>
+                    <i class="fas fa-money-bill-wave"></i>
                 </div>
-                <h3 class="product-title">Pack Cosmético Completo</h3>
-                <p class="product-desc">Desbloquea todos los cosméticos: wings, mascotas, partículas y más.</p>
+                <h3 class="product-title">50,000 Coins</h3>
+                <p class="product-desc">Paquete premium de monedas virtuales.</p>
                 <div class="product-features">
-                    <span><i class="fas fa-check"></i> 15 Wings diferentes</span>
-                    <span><i class="fas fa-check"></i> 8 Mascotas exclusivas</span>
-                    <span><i class="fas fa-check"></i> 20 Partículas</span>
-                    <span><i class="fas fa-check"></i> Actualizaciones gratis</span>
+                    <span><i class="fas fa-check"></i> +15,000 Coins extra</span>
+                    <span><i class="fas fa-check"></i> Mejor tasa</span>
+                    <span><i class="fas fa-check"></i> Entrega rápida</span>
+                    <span><i class="fas fa-check"></i> Sin límites</span>
                 </div>
                 <div class="product-price">
-                    <span class="price">$9.99</span>
-                    <span class="original">$24.99</span>
+                    <span class="price">$19.99</span>
+                    <span class="value">(650 coins/$)</span>
                 </div>
-                <button class="btn-buy" data-product="Pack Cosmético Completo" data-price="9.99">
+                <button class="btn-buy" data-product="50,000 Coins" data-price="19.99" data-mp-link="https://mp-link-coins-50000">
                     <i class="fas fa-shopping-cart"></i> Comprar Ahora
                 </button>
             </div>
@@ -209,9 +655,9 @@
                 <p>Los productos se entregan automáticamente en menos de 5 minutos</p>
             </div>
             <div class="info-card">
-                <i class="fas fa-headset"></i>
-                <h3>Soporte 24/7</h3>
-                <p>Nuestro staff está disponible para ayudarte con cualquier problema</p>
+                <i class="fab fa-discord"></i>
+                <h3>Sistema de Tickets</h3>
+                <p>Abre ticket en Discord después de pagar para entrega del producto</p>
             </div>
         </div>
     </div>
@@ -229,6 +675,7 @@
                     <div class="price-summary">
                         <span>Precio:</span>
                         <strong id="modalProductPrice">$0.00</strong>
+                        <span class="period" id="modalCurrency">USD</span>
                     </div>
                 </div>
 
@@ -248,14 +695,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="paymentMethod">
-                            <i class="fas fa-credit-card"></i> Método de pago
+                        <label for="discordUser">
+                            <i class="fab fa-discord"></i> Usuario de Discord
                         </label>
-                        <select id="paymentMethod" required>
-                            <option value="">Selecciona método de pago</option>
-                            <option value="paypal">PayPal</option>
-                            <option value="card">Tarjeta de crédito/débito</option>
-                        </select>
+                        <input type="text" id="discordUser" required placeholder="Ej: usuario#1234">
                     </div>
 
                     <div class="terms">
@@ -267,11 +710,23 @@
 
                     <div class="modal-actions">
                         <button type="button" class="btn-cancel">Cancelar</button>
-                        <button type="submit" class="btn-confirm">
-                            <i class="fab fa-paypal"></i> Proceder al pago
+                        <button type="button" class="btn-confirm" id="btnMercadoPago">
+                            <i class="fas fa-external-link-alt"></i> Ir a Mercado Pago
                         </button>
                     </div>
                 </form>
+
+                <div class="instructions" id="mercadoPagoInstructions" style="display: none; margin-top: 20px;">
+                    <p><strong>Instrucciones importantes:</strong></p>
+                    <ol style="text-align: left; color: #aaa; padding-left: 20px; margin-top: 10px;">
+                        <li>Serás redirigido a Mercado Pago para completar el pago</li>
+                        <li>Después de pagar, guarda el comprobante</li>
+                        <li>Ve a nuestro Discord: <strong id="discordLink">https://discord.gg/tu-link-aqui</strong></li>
+                        <li>Abre un ticket en el canal de soporte</li>
+                        <li>Adjunta el comprobante y menciona tu usuario de Minecraft</li>
+                        <li>Nuestro staff te entregará el producto en menos de 24 horas</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
@@ -282,25 +737,36 @@
             <div class="success-icon">
                 <i class="fas fa-check-circle"></i>
             </div>
-            <h2>¡Compra Exitosa!</h2>
-            <p id="successMessage">Tu pedido ha sido procesado correctamente.</p>
+            <h2>¡Pago Completado!</h2>
+            <p id="successMessage">Ahora sigue estos pasos para recibir tu producto.</p>
+            
+            <div class="instructions">
+                <p><strong>Pasos para completar tu compra:</strong></p>
+                <ol style="text-align: left; color: #aaa; padding-left: 20px; margin-top: 10px;">
+                    <li><i class="fab fa-discord"></i> <strong>Únete a nuestro Discord:</strong> <span id="successDiscordLink">https://discord.gg/tu-link-aqui</span></li>
+                    <li><i class="fas fa-ticket-alt"></i> <strong>Abre un ticket</strong> en el canal de soporte</li>
+                    <li><i class="fas fa-receipt"></i> <strong>Adjunta el comprobante</strong> de pago de Mercado Pago</li>
+                    <li><i class="fas fa-user"></i> <strong>Menciona tu usuario:</strong> <span id="successUsername">Player123</span></li>
+                    <li><i class="fas fa-box"></i> <strong>Producto comprado:</strong> <span id="successProduct">Producto</span></li>
+                    <li><i class="fas fa-clock"></i> <strong>Tiempo de entrega:</strong> Menos de 24 horas</li>
+                </ol>
+            </div>
+
             <div class="order-details">
                 <p><strong>ID de transacción:</strong> <span id="transactionId">NIV-XXXX-XXXX</span></p>
-                <p><strong>Producto:</strong> <span id="successProduct">Producto</span></p>
-                <p><strong>Total:</strong> <span id="successPrice">$0.00</span></p>
+                <p><strong>Fecha:</strong> <span id="transactionDate">DD/MM/YYYY</span></p>
+                <p><strong>Total pagado:</strong> <span id="successPrice">$0.00</span></p>
             </div>
-            <p class="instructions">
-                <i class="fas fa-info-circle"></i>
-                Recibirás un correo de confirmación y nuestro staff te contactará en menos de 24 horas para entregarte tu producto.
-            </p>
-            <button class="btn-close-success">Cerrar</button>
+
+            <div style="margin-top: 20px; padding: 15px; background: rgba(0, 255, 136, 0.1); border-radius: 10px; border-left: 4px solid var(--primary-green);">
+                <p><i class="fas fa-headset"></i> <strong>Soporte:</strong> Si tienes problemas, contacta a un administrador en Discord</p>
+            </div>
+
+            <button class="btn-close-success" style="margin-top: 30px;">Entendido</button>
         </div>
     </div>
 
     <script src="enproceso.js"></script>
-    <!-- PayPal SDK -->
-    <script src="https://www.paypal.com/sdk/js?client-id=TU_CLIENT_ID_AQUI&currency=USD"></script>
+    <!-- No se necesita SDK de PayPal, solo Mercado Pago links -->
 </body>
 </html>
-
-
