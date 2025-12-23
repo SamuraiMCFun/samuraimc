@@ -8,37 +8,37 @@ let discordServerLink = "https://discord.gg/hDQA99BTpb"; // CAMBIA ESTE LINK POR
 // REEMPLAZA ESTOS LINKS CON TUS LINKS REALES DE MERCADO PAGO
 const mercadoPagoLinks = {
     // Rangos
-    "Rango Ares": "https://www.mercadopago.com.mx/link-tools/congrats/894add81-076b-41db-b9a5-6ced0d7e900a",
-    "Rango Hades": "https://mpago.li/1iqNCXK",
-    "Rango Hermes": "https://mpago.li/17VnNzS",
-    "Rango Afrodita": "https://mpago.li/1ZuthBW",
-    "Rango Apolo": "https://mpago.li/1ZuthBW",
-    "Rango Kraken": "https://mp-link-kraken",
-    "Rango Zeus": "https://mpago.li/2BYAcNz",
-    "Rango Poseidon": "https://mp-link-poseidon",
-    "Rango Nivorxy": "https://mpago.li/16gmAKb",
-    "Rango Nivorxy+": "https://mpago.li/2SmK15u",
+    "Rango Ares": "https://mpago.la/1iqNCXK",
+    "Rango Hades": "https://mpago.la/1iqNCXK",
+    "Rango Hermes": "https://mpago.la/17VnNzS",
+    "Rango Afrodita": "https://mpago.la/1ZuthBW",
+    "Rango Apolo": "https://mpago.la/1ZuthBW",
+    "Rango Kraken": "https://mpago.la/1iqNCXK",
+    "Rango Zeus": "https://mpago.la/2BYAcNz",
+    "Rango Poseidon": "https://mpago.la/1iqNCXK",
+    "Rango Nivorxy": "https://mpago.la/16gmAKb",
+    "Rango Nivorxy+": "https://mpago.la/2SmK15u",
     
     // Tags
-    "Tag Inmortal": "https://mpago.li/25ZPgx7",
-    "Tag Op": "https://mpago.li/2TKe8nn",
-    "Tag God": "https://mp-link-tag-god",
-    "Tag Chaos": "https://mpago.li/2PHmSBW",
-    "Tag Mythic": "https://mpago.li/1nXny5o",
-    "Tag Void": "https://mpago.li/2wFgkXY",
-    "Tag Omega": "https://mpago.li/2KukbeX",
-    "Tag Personalizado": "https://mpago.li/2VJwhf7",
+    "Tag Inmortal": "https://mpago.la/25ZPgx7",
+    "Tag Op": "https://mpago.la/2TKe8nn",
+    "Tag God": "https://mpago.la/1iqNCXK",
+    "Tag Chaos": "https://mpago.la/2PHmSBW",
+    "Tag Mythic": "https://mpago.la/1nXny5o",
+    "Tag Void": "https://mpago.la/2wFgkXY",
+    "Tag Omega": "https://mpago.la/2KukbeX",
+    "Tag Personalizado": "https://mpago.la/2VJwhf7",
     
     // Unlock/Extras
-    "Pack Cosmético Completo": "https://mpago.li/33U8Anh",
-    "Unban Modalidad": "https://mpago.li/1ECWGt5",
-    "Unban Global": "https://mpago.li/21acsMC",
-    "Unban Discord": "https://mpago.li/2wcQGkS",
-    "UnBlacklist": "https://mpago.li/2sCtGcj",
+    "Pack Cosmético Completo": "https://mpago.la/33U8Anh",
+    "Unban Modalidad": "https://mpago.la/1ECWGt5",
+    "Unban Global": "https://mpago.la/21acsMC",
+    "Unban Discord": "https://mpago.la/2wcQGkS",
+    "UnBlacklist": "https://mpago.la/2sCtGcj",
     
     // Coins
-    "10,000 Coins": "https://mpago.li/2gDCzBc",
-    "50,000 Coins": "https://mpago.li/1Eav5ku"
+    "10,000 Coins": "https://mpago.la/2gDCzBc",
+    "50,000 Coins": "https://mpago.la/1Eav5ku"
 };
 
 // Crear partículas animadas en el fondo
@@ -115,7 +115,15 @@ function setupPurchaseButtons() {
         button.addEventListener('click', function() {
             selectedProduct = this.dataset.product;
             selectedPrice = this.dataset.price;
-            mercadoPagoLink = this.dataset.mpLink || mercadoPagoLinks[selectedProduct];
+            
+            // Obtener el enlace del objeto mercadoPagoLinks
+            mercadoPagoLink = mercadoPagoLinks[selectedProduct];
+            
+            if (!mercadoPagoLink) {
+                alert('Error: No se encontró el enlace de pago para este producto. Contacta al administrador.');
+                console.error('No hay enlace de Mercado Pago para:', selectedProduct);
+                return;
+            }
             
             // Actualizar modal con información del producto
             document.getElementById('modalProductName').textContent = selectedProduct;
@@ -160,13 +168,6 @@ function sendOrderToStaff(orderDetails) {
     localStorage.setItem('nivorxy_orders', JSON.stringify(orders));
     
     console.log('Pedido registrado:', orderData);
-    
-    // Aquí podrías hacer una petición HTTP a tu servidor
-    // fetch('/api/orders', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify(orderData)
-    // });
     
     return orderData;
 }
@@ -253,10 +254,15 @@ function setupModals() {
         }
         
         // Validar que tengamos un link de Mercado Pago
-        if (!mercadoPagoLink || mercadoPagoLink === "https://mp-link-...") {
-            alert('Error: El producto no tiene un link de Mercado Pago configurado. Contacta al administrador.');
-            console.error('Falta link de Mercado Pago para:', selectedProduct);
+        if (!mercadoPagoLink || mercadoPagoLink.includes("mpago.li") || mercadoPagoLink.includes("mp-link")) {
+            alert('Error: El producto no tiene un link de Mercado Pago configurado correctamente. Contacta al administrador.');
+            console.error('Link incorrecto de Mercado Pago para:', selectedProduct, 'Link:', mercadoPagoLink);
             return;
+        }
+        
+        // Verificar que el link comience con https://mpago.la/
+        if (!mercadoPagoLink.startsWith('https://mpago.la/')) {
+            console.warn('El link de Mercado Pago no tiene el formato esperado:', mercadoPagoLink);
         }
         
         // Abrir Mercado Pago en nueva pestaña
@@ -292,19 +298,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Efecto de escritura en títulos
     const title = document.querySelector('.section-title');
-    const originalText = title.textContent;
-    title.textContent = '';
-    
-    let i = 0;
-    function typeWriter() {
-        if (i < originalText.length) {
-            title.textContent += originalText.charAt(i);
-            i++;
-            setTimeout(typeWriter, 50);
+    if (title) {
+        const originalText = title.textContent;
+        title.textContent = '';
+        
+        let i = 0;
+        function typeWriter() {
+            if (i < originalText.length) {
+                title.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
         }
+        
+        setTimeout(typeWriter, 300);
     }
-    
-    setTimeout(typeWriter, 300);
     
     // Agregar efecto 3D a las tarjetas
     const productCards = document.querySelectorAll('.product-card');
@@ -385,31 +393,45 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Función para actualizar links de Mercado Pago
+function updateMercadoPagoLinks(newLinks) {
+    Object.keys(newLinks).forEach(key => {
+        mercadoPagoLinks[key] = newLinks[key];
+    });
+    alert('Links de Mercado Pago actualizados');
+}
+
 // Instrucciones para el administrador
 console.log(`
 === INSTRUCCIONES PARA CONFIGURAR LA TIENDA ===
 
-1. REEMPLAZA LOS LINKS DE MERCADO PAGO:
-   - Ve al archivo enproceso.js
-   - Busca la variable 'mercadoPagoLinks'
-   - Reemplaza cada "https://mp-link-..." con tus links reales de Mercado Pago
-
-2. CONFIGURA TU DISCORD:
+1. CONFIGURA TU DISCORD:
    - Ve al archivo enproceso.js
    - Busca la variable 'discordServerLink'
    - Reemplaza "https://discord.gg/tu-link-aqui" con tu link de Discord
    O usa en consola: setDiscordLink("tu-link-de-discord")
 
-3. PANEL DE ADMINISTRACIÓN:
+2. VERIFICA LOS LINKS DE MERCADO PAGO:
+   - Los links deben comenzar con: https://mpago.la/
+   - Ejemplo correcto: https://mpago.la/1iqNCXK
+   - Ejemplo incorrecto: https://mpago.li/1iqNCXK (nota la "i" en .li)
+   
+3. ACTUALIZA LOS LINKS DE MERCADO PAGO:
+   - En consola puedes usar: updateMercadoPagoLinks({ "Producto": "https://mpago.la/tu-link" })
+   - O modifica directamente el objeto 'mercadoPagoLinks' en el código
+
+4. LINKS QUE NECESITAN CORRECCIÓN (tienen mpago.li):
+   - "Rango Ares": Cambiar a mpago.la
+   - "Tag God": Agregar link real
+   - "Rango Kraken": Agregar link real  
+   - "Rango Poseidon": Agregar link real
+
+5. PANEL DE ADMINISTRACIÓN:
    - En consola: showStaffPanel()
    - Contraseña: nivorxy2025
    - Para exportar: exportOrders()
 
-4. ACTUALIZAR PRECIOS/CONTENIDO:
-   - Modifica directamente en enproceso.html los productos
-   - Asegúrate de actualizar también los data-mp-link
-
-5. SISTEMA DE ENTREGA:
+6. SISTEMA DE ENTREGA:
    - Los usuarios pagan en Mercado Pago
    - Luego abren ticket en Discord con comprobante
    - Tú verificas y entregas el producto manualmente
