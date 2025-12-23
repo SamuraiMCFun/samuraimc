@@ -8,37 +8,37 @@ let discordServerLink = "https://discord.gg/hDQA99BTpb"; // CAMBIA ESTE LINK POR
 // REEMPLAZA ESTOS LINKS CON TUS LINKS REALES DE MERCADO PAGO
 const mercadoPagoLinks = {
     // Rangos
-    "Rango Ares": "https://mp-link-ares",
-    "Rango Hades": "https://mp-link-hades",
-    "Rango Hermes": "https://mp-link-hermes",
-    "Rango Afrodita": "https://mp-link-afrodita",
-    "Rango Apolo": "https://mp-link-apolo",
+    "Rango Ares": "https://www.mercadopago.com.mx/link-tools/congrats/894add81-076b-41db-b9a5-6ced0d7e900a",
+    "Rango Hades": "https://mpago.li/1iqNCXK",
+    "Rango Hermes": "https://mpago.li/17VnNzS",
+    "Rango Afrodita": "https://mpago.li/1ZuthBW",
+    "Rango Apolo": "https://mpago.li/1ZuthBW",
     "Rango Kraken": "https://mp-link-kraken",
-    "Rango Zeus": "https://mp-link-zeus",
+    "Rango Zeus": "https://mpago.li/2BYAcNz",
     "Rango Poseidon": "https://mp-link-poseidon",
-    "Rango Nivorxy": "https://mp-link-nivorxy",
-    "Rango Nivorxy+": "https://mp-link-nivorxy-plus",
+    "Rango Nivorxy": "https://mpago.li/16gmAKb",
+    "Rango Nivorxy+": "https://mpago.li/2SmK15u",
     
     // Tags
-    "Tag Inmortal": "https://mp-link-tag-inmortal",
-    "Tag Op": "https://mp-link-tag-op",
+    "Tag Inmortal": "https://mpago.li/25ZPgx7",
+    "Tag Op": "https://mpago.li/2TKe8nn",
     "Tag God": "https://mp-link-tag-god",
-    "Tag Chaos": "https://mp-link-tag-chaos",
-    "Tag Mythic": "https://mp-link-tag-mythic",
-    "Tag Void": "https://mp-link-tag-void",
-    "Tag Omega": "https://mp-link-tag-omega",
-    "Tag Personalizado": "https://mp-link-tag-personal",
+    "Tag Chaos": "https://mpago.li/2PHmSBW",
+    "Tag Mythic": "https://mpago.li/1nXny5o",
+    "Tag Void": "https://mpago.li/2wFgkXY",
+    "Tag Omega": "https://mpago.li/2KukbeX",
+    "Tag Personalizado": "https://mpago.li/2VJwhf7",
     
     // Unlock/Extras
-    "Pack Cosmético Completo": "https://mp-link-cosmeticos",
-    "Unban Modalidad": "https://mp-link-unban-modalidad",
-    "Unban Global": "https://mp-link-unban-global",
-    "Unban Discord": "https://mp-link-unban-discord",
-    "UnBlacklist": "https://mp-link-unblacklist",
+    "Pack Cosmético Completo": "https://mpago.li/33U8Anh",
+    "Unban Modalidad": "https://mpago.li/1ECWGt5",
+    "Unban Global": "https://mpago.li/21acsMC",
+    "Unban Discord": "https://mpago.li/2wcQGkS",
+    "UnBlacklist": "https://mpago.li/2sCtGcj",
     
     // Coins
-    "10,000 Coins": "https://mp-link-coins-10000",
-    "50,000 Coins": "https://mp-link-coins-50000"
+    "10,000 Coins": "https://mpago.li/2gDCzBc",
+    "50,000 Coins": "https://mpago.li/1Eav5ku"
 };
 
 // Crear partículas animadas en el fondo
